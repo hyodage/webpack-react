@@ -2,7 +2,7 @@ const {resolve} = require("path")
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     // 打包模式
-    mode:"production",
+    mode:"development",
     // 入口 执行构建的入口 项目入口
     entry:"./src/index.js",//默认也是如此
     // 出口
@@ -19,7 +19,18 @@ module.exports = {
         ]
     },
     // 开发服务器
-    devServer: {},
+    devServer: {
+        // 指定加载内容的路径
+        static: resolve(__dirname,'dist'),
+        // 启动gzip
+        compress: true,
+        // 端口号
+        port: 9200,
+        // 热更新
+        liveReload: true
+    },
+    // 配置目标
+    target: 'web',
     // 插件配置
     plugins:[
         new HtmlWebpackPlugin({
