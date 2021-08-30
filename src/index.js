@@ -2,4 +2,7 @@ const msgObj = {
     name: 'dolphin',
     sex: 'male'
 }
-console.log(msgObj)
+const showMsg = ()=>{
+    console.log(msgObj)
+}
+showMsg()

@@ -16,6 +16,14 @@ module.exports = {
     module: {
         rules: [
             // 指定多个配置规则
+            {
+                test: /.\js$/,
+                exclude: /node_modules/,
+                include: resolve(__dirname,"./src"),
+                use:{
+                    loader: "babel-loader"
+                }
+            }
         ]
     },
     // 开发服务器
