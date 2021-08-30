@@ -1,9 +1,8 @@
 import './assets/style/index.scss';
-const msgObj = {
-    name: 'dolphin',
-    sex: 'male'
-}
-const showMsg = ()=>{
-    console.log(msgObj)
-}
-showMsg()
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+    <h1>hello world</h1>,
+  document.getElementById('root'),
+);
