@@ -1,0 +1,10 @@
+// _global.scss
+@use "variables";
+
+body {
+    background-color:variables.$bg;
+    color: var(--text);
+}
+.box {
+    display: flex;
+}

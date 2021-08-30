@@ -1,3 +1,4 @@
+import './assets/style/index.scss';
 const msgObj = {
     name: 'dolphin',
     sex: 'male'

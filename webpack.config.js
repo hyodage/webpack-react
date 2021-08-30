@@ -1,5 +1,6 @@
 const {resolve} = require("path")
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     // 打包模式
     mode:"development",
@@ -10,12 +11,17 @@ module.exports = {
         // 构建的文件资源，必须绝对路径
         path:resolve(__dirname,"./dist"),
         // 构建的文件资源的名称
-        filename:"main.js"
+        filename:"main.js",
+        clean:true,
     },
     // 模块配置
     module: {
         rules: [
             // 指定多个配置规则
+            {
+                test: /\.(s[ac]|c)ss$/i,
+                use:[MiniCssExtractPlugin.loader,'css-loader','postcss-loader','sass-loader']
+            },
             {
                 test: /.\js$/,
                 exclude: /node_modules/,
@@ -44,6 +50,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./public/index.html",
             title: "hello React"
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].css'
         })
     ]
 }
