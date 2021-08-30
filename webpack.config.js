@@ -1,4 +1,5 @@
 const {resolve} = require("path")
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     // 打包模式
     mode:"production",
@@ -20,5 +21,10 @@ module.exports = {
     // 开发服务器
     devServer: {},
     // 插件配置
-    plugins: []
+    plugins:[
+        new HtmlWebpackPlugin({
+            template: "./public/index.html",
+            title: "hello React"
+        })
+    ]
 }
